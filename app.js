@@ -3,6 +3,7 @@ const express          = require("express"),
     bodyParser       = require("body-parser"),
     flash            = require("connect-flash"),
     http             = require("http").Server(app),
+    io               = require("socket.io")(http),
     URL              = require('url').URL,
     language         = require("@google-cloud/language");
 
@@ -27,8 +28,9 @@ let googleCloudArray = [];
 let questions = [];
 let answers = [];
 //let string = "Free fall is the motion of an object under the influence of only gravity. The acceleration of an object in free fall is directed downward, regardless of the initial motion. The magnitude of free fall acceleration is g = 9.80 m/s^2. Aristotle thought that heavy objects fall faster than light ones but Galileo showed that all bodies fall at the same rate. An object is at its highest point when its vertical velocity, not the acceleration is zero at the highest point. The average velocity between two points is the displacement divided by the time interval between the two points and it has the same direction as the displacement.";
-let string = "Free fall is the motion of an object under the influence of only gravity. The acceleration of an object in free fall is directed downward, regardless of the initial motion. The magnitude of free fall acceleration is g = 9.80 m/s^2. Aristotle thought that heavy objects fall faster than lighter ones, but Galileo showed that all bodies fall at the same rate. An object is at its highest point when its vertical velocity, not the acceleration, is zero at the highest point. The average velocity between two points is the displacement divided by the time interval between the two points and it has the same direction as the displacement.";
-
+//let string = "Free fall is the motion of an object under the influence of only gravity. The acceleration of an object in free fall is directed downward, regardless of the initial motion. The magnitude of free fall acceleration is g = 9.80 m/s^2. Galileo demonstrated that all bodies fall at the same rate. An object is at its highest point when its vertical velocity, not the acceleration, is zero at the highest point. The average velocity between two points is the displacement divided by the time interval between the two points and it has the same direction as the displacement.";
+let string = "Free fall is the motion of an object under the influence of only gravity. The acceleration of an object in free fall is directed downward, regardless of the initial motion. The magnitude of free fall acceleration is g = 9.80 m/s^2. Galileo demonstrated that all bodies fall at the same rate. An object is at its highest point when its vertical velocity, not the acceleration, is zero at the highest point. The average velocity between two points is the displacement divided by the time interval between the two points and it has the same direction as the displacement. Instantaneous velocity is a tangent to a point on a distance-time graph. It can also be calculated by finding the derivative of the graph. Instantaneous acceleration is a tangent to a point on a velocity-time graph.";
+io.on("connection", function (socket) {
 function getKeyPhrases (documents) {
     request({
         url: endpoint,
@@ -269,7 +271,12 @@ function sortTermArray() {
     clearEmptyAnswers();
     console.log(questions);
     console.log(answers);
-    console.log("");
+    var questionsAndAnswers = {
+        questions: questions,
+        answers: answers
+    };
+    console.log(questionsAndAnswers);
+    socket.emit("termData", questionsAndAnswers);
 }
 
 function clearEmptyAnswers() {
@@ -297,9 +304,17 @@ async function googleApiCall(inputtedString) {
     }
 }
 
+
+
+    console.log("A user connected");
+    socket.on("getTermData", function (string) {
+        analyzeSyntaxOfText(string);
+    });
+});
+
 // GET ROUTE: landing page
 app.get("/", function(req, res) {
-    analyzeSyntaxOfText(string);
+   //
 
     res.render("landing");
 });
