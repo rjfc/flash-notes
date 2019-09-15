@@ -39,17 +39,15 @@ textarea {
 }
 
 .fifty {
-    background-color: white;
     margin: auto;
     width: 50%;
     padding: 5px 5px 5px 5px;
     text-align: center;
     padding-left: 30px;
     padding-right: 30px;
-    margin-bottom: 60px;
-    box-shadow:
-        /* The top layer shadow */
-            0 1px 1px rgba(0,0,0,0.15);
+}
+.fifty > img {
+    height: 160px;
 }
 
 .flashcardbox {
@@ -135,6 +133,10 @@ textarea {
     top:1px;
 }
 
+.flashcard-container {
+    display: none;
+}
+
 .flashcard {
     background-color: #fcfcfc;
     margin-left: 400px;
@@ -144,4 +146,16 @@ textarea {
     justify-content:center;
     align-items:center;
     height:300px;
+}
+
+.flashcard:hover {
+    background-color: #f2f2f2;
+    transition: 0.2s;
+}
+
+.flashcard-container > span {
+    position: relative;
+    left: 0;
+    font-size: 15px;
+    font-weight: bold;
 }
