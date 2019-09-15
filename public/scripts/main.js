@@ -1,5 +1,7 @@
 $(".note-submit-button").click(function() {
    var submittedString = $("#input-text").val();
+   $(this).val("Generating...");
+   $("#spinner-gif").show();
    socket.emit("getTermData", submittedString);
 });
 
@@ -9,6 +11,8 @@ var answers;
 var clickCounter = 0;
 
 socket.on("termData", function(termData) {
+    $("#spinner-gif").hide();
+    $(".note-submit-button").val("Generate");
     $(".flashcard-container").show();
     var n = $(document).height();
     $('html, body').animate({ scrollTop: n }, 500);
