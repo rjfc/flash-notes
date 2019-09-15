@@ -15,6 +15,9 @@ socket.on("termData", function(termData) {
     console.log(termData);
     questions = termData.questions;
     answers = termData.answers;
+    if (questions.length == 0) {
+        $(".flashcard > h1").text("No flashcards could be generated.");
+    }
     console.log(questions[clickCounter]);
     $(".flashcard > h1").text(questions[clickCounter].charAt(0).toUpperCase() + questions[clickCounter].slice(1) + "...");
     $(".flashcard-container > span").text("Displaying term " + (clickCounter + 1) + " of " + answers.length);
