@@ -308,6 +308,11 @@ async function googleApiCall(inputtedString) {
 
     console.log("A user connected");
     socket.on("getTermData", function (string) {
+         keyTerms = [];
+         termIndexes = [];
+         googleCloudArray = [];
+         questions = [];
+         answers = [];
         analyzeSyntaxOfText(string);
     });
 });
