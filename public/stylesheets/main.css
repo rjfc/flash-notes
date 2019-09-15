@@ -1,32 +1,147 @@
-/*
-Colours
-  _____ ____  _      ____  _    _ _____   _____
- / ____/ __ \| |    / __ \| |  | |  __ \ / ____|
-| |   | |  | | |   | |  | | |  | | |__) | (___
-| |   | |  | | |   | |  | | |  | |  _  / \___ \
-| |___| |__| | |___| |__| | |__| | | \ \ ____) |
- \_____\____/|______\____/ \____/|_|  \_\_____/
-  Colour           |   Type   |  Hex
- ------------------|----------|-------
-*/
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+body {
+    margin: 3rem;
+    font-family:'Lato', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* background-color: #ebcc34 */
+    background-image: url("background4.png");
+}
 
-/*
-Fonts
- ______ ____  _   _ _______ _____
-|  ____/ __ \| \ | |__   __/ ____|
-| |__ | |  | |  \| |  | | | (___
-|  __|| |  | | . ` |  | |  \___ \
-| |   | |__| | |\  |  | |  ____) |
-|_|    \____/|_| \_|  |_| |_____/
-*/
-/*
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
 
-/*
- General
-   _____ ______ _   _ ______ _____            _
-  / ____|  ____| \ | |  ____|  __ \     /\   | |
- | |  __| |__  |  \| | |__  | |__) |   /  \  | |
- | | |_ |  __| | . ` |  __| |  _  /   / /\ \ | |
- | |__| | |____| |\  | |____| | \ \  / ____ \| |____
-  \_____|______|_| \_|______|_|  \_\/_/    \_\______|
- */
+h3 {
+    margin: 5px;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+div {
+    text-align: center;
+}
+
+textarea {
+    /* box-sizing: border-box; */
+    /* border: none; */
+    border-radius: 3px;
+    resize: none;
+    overflow: auto;
+    height: auto;
+    padding: 8px;
+    /* box-shadow: 0px 4px 10px -8px black; */
+}
+
+.fifty {
+    background-color: white;
+    margin: auto;
+    width: 50%;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 60px;
+    box-shadow:
+        /* The top layer shadow */
+            0 1px 1px rgba(0,0,0,0.15);
+}
+
+.flashcardbox {
+    background-color: white;
+    margin: auto;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    box-shadow:
+        /* The top layer shadow */
+            0 1px 1px rgba(0,0,0,0.15);
+}
+
+.flashcardtext {
+    font-size: 16px;
+}
+
+.shadow-box {
+    background-color: white;
+    margin: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #efefef;
+    box-shadow:
+        /* The top layer shadow */
+            0 1px 1px rgba(0,0,0,0.15),
+                /* The second layer */
+            0 10px 0 -5px #eee,
+                /* The second layer shadow */
+            0 10px 1px -4px rgba(0,0,0,0.15),
+                /* The third layer */
+            0 20px 0 -10px #eee,
+                /* The third layer shadow */
+            0 20px 1px -9px rgba(0,0,0,0.15);
+    padding: 30px;
+    margin-bottom: 5rem;
+}
+
+.prettybutton {
+    display:inline-block;
+    border:0.1em solid #7a7a7a;
+    margin: 1rem;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    text-align:center;
+    transition: all 0.2s;
+    padding:0.5rem;
+    background-color: #FFF5E0
+}
+
+.prettybutton:hover{
+    color:#000000;
+    background-color: #FFFFFF;
+}
+
+
+.note-submit-button {
+    -moz-box-shadow: 0px 5px 0px 0px #3dc21b;
+    -webkit-box-shadow: 0px 5px 0px 0px #3dc21b;
+    box-shadow: 0px 5px 0px 0px #3dc21b;
+    background-color:#44c767;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    border:1px solid #18ab29;
+    cursor:pointer;
+    color:#ffffff;
+    font-size:21px;
+    padding:10px 25px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+}
+.note-submit-button:hover {
+    transition: 0.2s;
+    background-color:#44b362;
+}
+.note-submit-button:active {
+    position:relative;
+    top:1px;
+}
+
+.flashcard {
+    background-color: #fcfcfc;
+    margin-left: 400px;
+    margin-right: 400px;
+    padding: 10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:300px;
+}
